@@ -1,67 +1,55 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { url } from './Constants';
 
 const Wrapper = styled.div`
   padding: 5px;
   background: papayawhip;
-`; 
+`;
 
 function Table(props) {
 
-    const [inputValue, setInputValue] = useState("");
-    const [show, setShow] = useState(false);
-    const [counter, setCounter] = useState(0);
-    const [userData, setUserData] = useState({});
+  const [show, setShow] = useState(false);
 
-    const getData = async () => {
-        const response = await fetch(url);
-        const json = await response.json();
-        setUserData(json);
-        console.log(json);
-    };
-
-    useEffect(() => {
-        console.log('useEffect');
-        getData();
-
-    },[]);
+  useEffect(() => {
 
 
-    const changeInput = (event) => {
-        setInputValue(event.target.value);
-    };
+  }, []);
+  console.log(props.userData);
 
-        return(
-            <Wrapper>
-                <h1>Paycheck Details</h1>
-                <table responsive striped condensed hover >
-            <thead>
-              <tr>
-                <th> </th>
-                <th> Assignment </th>
-                <th> Submitted On </th>
-                <th> Score  </th>
-                <th> </th>
-              </tr>
-            </thead>
-            {/* <tbody>
-              {homeWorks.map((c) => {
-                return <tr>
-                  <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                  <td> {c.assignmentname}</td>
-                  <td> {c.assignmentenddate}</td>
-                  <td> {c.assignmentscrore}</td>
-                </tr>
+  return (
+    <Wrapper>
+      <table responsive striped condensed hover >
+        <thead>
+          <tr>
+            <th> </th>
+            <th> Employee Number </th>
+            <th> Employee Name</th>
+            <th> Deduction Per Paycheck  </th>
+            <th> Amount Paid Per Paycheck  </th>
+            <th> Deduction Per Year </th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.userData && props.userData.map((emp) => {
+            return <tr>
+              <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+              <td> {emp.user.id}</td>
+              <td> {emp.user.name}</td>
+              <td> {emp.deductionPerPaycheck}</td>
+              <td> {emp.costPaidAfterDeduction}</td>
+              <td> {emp.deductionPerYear}</td>
+            </tr>
 
-              })}
-            </tbody> */}
-          </table>
-                
-                
+          })}
+        </tbody>
+      </table>
 
-            </Wrapper>
-        );
+
+
+    </Wrapper>
+  );
 }
 
 export default Table;
