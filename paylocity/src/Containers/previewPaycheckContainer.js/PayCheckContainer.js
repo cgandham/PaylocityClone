@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Table from '../../Components/Table/Table';
 import { url } from './Constants';
+import { backgroundColor } from '../../Utils/Constants';
 
 const Wrapper = styled.div`
   padding: 5px;
-  background: papayawhip;
+  background:${backgroundColor};
 `;
 
 function PayCheckContainer(props) {

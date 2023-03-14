@@ -4,7 +4,7 @@ import { url } from './Constants';
 
 const Wrapper = styled.div`
   padding: 5px;
-  background: papayawhip;
+
 `;
 
 function Table(props) {
