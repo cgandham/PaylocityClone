@@ -5,11 +5,16 @@ import DependentForm from '../../Components/dependentForm/DependentForm';
 import { v4 as uuidv4 } from 'uuid'; // using uuid library
 
 const Wrapper = styled.div`
-  padding: 5px;
   background:${backgroundColor} ;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 `;
 
-function EmployeeFormContainer() {
+
+function EmpDependentsFormContainer() {
     const [userName, setUserName] = useState("");
     const [dependents, setDependents] = useState([]);
 
@@ -82,16 +87,11 @@ function EmployeeFormContainer() {
                           changeDependentType={changeDependentType} />
             })}
 
-
-
-            {/* <button onClick={() => setShow(!show)}>Click to toggle element below</button>
-                {show && <div>Boo, Hi!</div>} */}
-
-            <button onClick={previewPaycheck} disabled={userName.length < 1}>Preview Paycheck</button>
+            <button onClick={previewPaycheck} disabled={userName.length < 1}>Update Details</button>
 
 
         </Wrapper>
     )
 }
 
-export default EmployeeFormContainer;
+export default EmpDependentsFormContainer;

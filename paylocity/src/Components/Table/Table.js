@@ -3,7 +3,20 @@ import styled from 'styled-components';
 import { url } from './Constants';
 
 const Wrapper = styled.div`
-  padding: 5px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
 
 `;
 
@@ -15,7 +28,6 @@ function Table(props) {
 
 
   }, []);
-  console.log(props.userData);
 
   return (
     <Wrapper>
@@ -23,12 +35,11 @@ function Table(props) {
         <thead>
           <tr>
             <th> </th>
-            <th> Employee Number </th>
+            <th> Employee ID </th>
             <th> Employee Name</th>
             <th> Deduction Per Paycheck  </th>
             <th> Amount Paid Per Paycheck  </th>
             <th> Deduction Per Year </th>
-            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -45,9 +56,6 @@ function Table(props) {
           })}
         </tbody>
       </table>
-
-
-
     </Wrapper>
   );
 }

@@ -6,6 +6,12 @@ import { backgroundColor } from '../../Utils/Constants';
 
 const Wrapper = styled.div`
   padding: 5px;
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
   background:${backgroundColor};
 `;
 

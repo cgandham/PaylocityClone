@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import EmployeeFormContainer from './Containers/EmployeeFormContainer/EmployeeFormContainer';
+import EmpDependentsFormContainer from './Containers/EmpDependentsFormContainer/EmpDependentsFormContainer';
 import PayCheckContainer from './Containers/previewPaycheckContainer.js/PayCheckContainer';
+import EmpDetailsContainer from './Containers/EmpDetailsContainer/EmpDetailsContainer';
 import { BrowserRouter as Router} from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
@@ -12,8 +13,10 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<EmployeeFormContainer />} />
+        <Route path="/" element={<EmpDetailsContainer />} />
+        <Route path="/myPaycheck" element={<EmpDetailsContainer />} />
         <Route path="/paychecks" element={<PayCheckContainer />} />
+        <Route path="/employeeForm" element={<EmpDependentsFormContainer />} />
       </Routes>
     </Router>
   </React.StrictMode>
